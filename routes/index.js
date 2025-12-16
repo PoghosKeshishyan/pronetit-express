@@ -5,6 +5,8 @@ import HeaderInfoRouter from './headerInfos.js';
 import NavbarRouter from './navbars.js';
 import SliderRouter from './sliders.js';
 import ServicesRouter from './servicesSections.js';
+import CounterRouter from './counters.js';
+import ItsolutionRouter from './itsolutions.js';
 
 const router = Router();
 
@@ -14,5 +16,7 @@ router.use('/api/header_infos', HeaderInfoRouter);
 router.use('/api/navbars', NavbarRouter);
 router.use('/api/sliders', SliderRouter);
 router.use('/api/services_sections', ServicesRouter);
+router.use('/api/counter_sections', CounterRouter);
+router.use('/api/itsolutions', ItsolutionRouter);
 
 export default router;

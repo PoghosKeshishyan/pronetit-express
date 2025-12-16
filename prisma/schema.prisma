@@ -22,6 +22,8 @@ model User {
   createdNavbar         Navbar[]
   createdSlider         Slider[]
   createdServiceSection ServiceSection[]
+  createdCounters       Counter[]
+  createdItsolutions    Itsolution[]
 }
 
 model Header_info {
@@ -101,4 +103,49 @@ model ServiceType {
   value     String
   service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
   serviceId String
+}
+
+model Counter {
+  id       String         @id @default(uuid())
+  lang     String
+  counters Counter_list[]
+  user     User?          @relation(fields: [authorId], references: [id])
+  authorId String?
+}
+
+model Counter_list {
+  id        String   @id @default(uuid())
+  image     String
+  value     String
+  label     String
+  counter   Counter? @relation(fields: [counterId], references: [id])
+  counterId String?
+}
+
+model Itsolution {
+  id          String             @id @default(uuid())
+  lang        String
+  titleSmall  String
+  titleBig    String
+  description String
+  worksTypes  WorksType[]
+  images      Itsolution_image[]
+  user        User?              @relation(fields: [authorId], references: [id])
+  authorId    String?
+}
+
+model WorksType {
+  id           String      @id @default(uuid())
+  title        String
+  description  String
+  itsolution   Itsolution? @relation(fields: [itsolutionId], references: [id])
+  itsolutionId String?
+}
+
+model Itsolution_image {
+  id           String      @id @default(uuid())
+  leftColumn   Json
+  rightColumn  Json
+  itsolution   Itsolution? @relation(fields: [itsolutionId], references: [id])
+  itsolutionId String?
 }

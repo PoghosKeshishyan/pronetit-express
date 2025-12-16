@@ -5,6 +5,8 @@ const getHomePage = async (req, res) => {
         `${req.baseFullUrl}/api/navbars`,
         `${req.baseFullUrl}/api/sliders`,
         `${req.baseFullUrl}/api/services_sections`,
+        `${req.baseFullUrl}/api/counter_sections`,
+        `${req.baseFullUrl}/api/itsolutions`,
     ];
 
     res.render('index', { apiList });
