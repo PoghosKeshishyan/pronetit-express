@@ -25,6 +25,31 @@ export const all = async (req, res) => {
     }
 };
 
+export const serviceDataById = async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const serviceData = await prisma.servive_list.findUnique({
+            where: { 
+                id,
+            },
+        });
+
+        if (!serviceData) {
+            return res.status(404).json({ message: "Service data not found" });
+        }
+
+        const formattedServiceData = {
+            ...serviceData,
+            image: `${req.baseFullUrl}${serviceData.image}`,
+        };
+
+        res.status(200).json(formattedServiceData);
+    } catch (error) {
+        res.status(400).json({ message: "Failed to retrieve service data" });
+    }
+};
+
 export const servicePage = async (req, res) => {
     const id = req.params.id;
 
