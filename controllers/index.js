@@ -23,6 +23,7 @@ const getHomePage = async (req, res) => {
         `${req.baseFullUrl}/api/about-pages`,
         `${req.baseFullUrl}/api/about-logos`,
         `${req.baseFullUrl}/api/contact-pages`,
+        `${req.baseFullUrl}/api/consultentcy-services`,
         `${req.baseFullUrl}/api/footers`,
     ];
 

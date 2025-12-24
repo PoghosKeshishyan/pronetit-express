@@ -40,12 +40,22 @@ export const add = async (req, res) => {
     const data = req.body;
 
     if (
-        !data.lang || !data.title || !data.phone_number_one ||
-        !data.phone_number_two || !data.phone_decr || !data.email ||
-        !data.email_decr || !data.location || !data.work_location ||
-        !data.subtitle || !data.name_label || !data.name_placeholder ||
-        !data.phone_label || !data.phone_placeholder ||
-        !data.message_placeholder || !data.button
+        !data.lang || 
+        !data.title || 
+        !data.phone_number_one ||
+        !data.phone_number_two || 
+        !data.phone_decr || 
+        !data.email ||
+        !data.email_decr || 
+        !data.location || 
+        !data.work_location ||
+        !data.subtitle || 
+        !data.name_label || 
+        !data.name_placeholder ||
+        !data.phone_label || 
+        !data.phone_placeholder ||
+        !data.message_placeholder || 
+        !data.button
     ) {
         return res.status(400).json({ message: "All fields are required" });
     }
@@ -69,12 +79,22 @@ export const edit = async (req, res) => {
     const data = req.body;
 
     if (
-        !data.lang || !data.title || !data.phone_number_one ||
-        !data.phone_number_two || !data.phone_decr || !data.email ||
-        !data.email_decr || !data.location || !data.work_location ||
-        !data.subtitle || !data.name_label || !data.name_placeholder ||
-        !data.phone_label || !data.phone_placeholder ||
-        !data.message_placeholder || !data.button
+        !data.lang || 
+        !data.title || 
+        !data.phone_number_one ||
+        !data.phone_number_two || 
+        !data.phone_decr || 
+        !data.email ||
+        !data.email_decr || 
+        !data.location || 
+        !data.work_location ||
+        !data.subtitle || 
+        !data.name_label || 
+        !data.name_placeholder ||
+        !data.phone_label || 
+        !data.phone_placeholder ||
+        !data.message_placeholder || 
+        !data.button
     ) {
         return res.status(400).json({ message: "All fields are required" });
     }

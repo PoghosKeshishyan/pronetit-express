@@ -11,6 +11,7 @@ import ServicesPagesRouter from './servicesPages.js';
 import AboutPageRouter from './about-pages.js';
 import AboutLogoRoter from './about-logos.js';
 import ContactPageRouter from './contact-pages.js';
+import ConsultentcyRouter from './consultentcy-services.js';
 import FooterRouter from './footers.js';
 
 const router = Router();
@@ -27,6 +28,7 @@ router.use('/api/services-pages', ServicesPagesRouter);
 router.use('/api/about-pages', AboutPageRouter);
 router.use('/api/about-logos', AboutLogoRoter);
 router.use('/api/contact-pages', ContactPageRouter);
+router.use('/api/consultentcy-services', ConsultentcyRouter);
 router.use('/api/footers', FooterRouter);
 
 export default router;

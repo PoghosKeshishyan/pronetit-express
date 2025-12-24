@@ -14,20 +14,21 @@ datasource db {
 }
 
 model User {
-  id                    String           @id @default(uuid())
-  name                  String
-  email                 String           @unique
-  password              String
-  createdHeaderInfo     Header_info[]
-  createdNavbar         Navbar[]
-  createdSlider         Slider[]
-  createdServiceSection ServiceSection[]
-  createdCounter        Counter[]
-  createdItsolution     Itsolution[]
-  createdAboutPage      About_page[]
-  createdServicePage    Service_page[]
-  createdContactPage    Contact_page[]
-  createdFooter         Footer[]
+  id                         String                 @id @default(uuid())
+  name                       String
+  email                      String                 @unique
+  password                   String
+  createdHeaderInfo          Header_info[]
+  createdNavbar              Navbar[]
+  createdSlider              Slider[]
+  createdServiceSection      ServiceSection[]
+  createdCounter             Counter[]
+  createdItsolution          Itsolution[]
+  createdAboutPage           About_page[]
+  createdServicePage         Service_page[]
+  createdContactPage         Contact_page[]
+  createdConsultentcyService Consultentcy_service[]
+  createdFooter              Footer[]
 }
 
 model Header_info {
@@ -229,6 +230,28 @@ model Contact_page {
   button              String
   user                User?   @relation(fields: [authorId], references: [id])
   authorId            String?
+}
+
+model Consultentcy_service {
+  id                   String  @id @default(uuid())
+  lang                 String
+  title                String
+  name_label           String
+  surname_label        String
+  phone_label          String
+  email_label          String
+  company_label        String
+  service_label        String
+  name_placeholder     String
+  phone_placeholder    String
+  message_placeholder  String
+  services_placeholder String
+  surname_placeholder  String
+  email_placeholder    String
+  company_placeholder  String
+  button               String
+  user                 User?   @relation(fields: [authorId], references: [id])
+  authorId             String?
 }
 
 model Footer {
