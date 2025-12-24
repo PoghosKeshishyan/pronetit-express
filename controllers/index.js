@@ -1,6 +1,6 @@
 
 const getHomePage = async (req, res) => {
-    const projectVersion = 'v.1.9.'
+    const projectVersion = 'v.2.1.'
 
     const routes = [
         { id: 1, method: 'GET', access: 'public', url: `${req.baseFullUrl}/api/header-infos` },
