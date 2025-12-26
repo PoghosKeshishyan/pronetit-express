@@ -161,6 +161,7 @@ model Service_page {
   title        String
   social       String
   list         String
+  btn_text     String         @default("Consultancy")
   servicesData Servive_list[]
   user         User?          @relation(fields: [authorId], references: [id])
   authorId     String?
