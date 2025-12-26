@@ -168,6 +168,8 @@ model Service_page {
 
 model Servive_list {
   id             String        @id @default(uuid())
+  slug           String?
+  lang           String        @default("EN")
   title          String
   subtitle       String
   image          String

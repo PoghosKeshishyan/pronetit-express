@@ -25,13 +25,15 @@ export const all = async (req, res) => {
     }
 };
 
-export const serviceDataById = async (req, res) => {
-    const id = req.params.id;
+export const serviceDataBySlug = async (req, res) => {
+    const slug = req.params.slug;
+    const lang = req.query.lang || "";
 
     try {
-        const serviceData = await prisma.servive_list.findUnique({
-            where: { 
-                id,
+        const serviceData = await prisma.servive_list.findMany({
+            where: {
+                slug,
+                ...(lang ? { lang } : {}),
             },
         });
 
@@ -39,14 +41,14 @@ export const serviceDataById = async (req, res) => {
             return res.status(404).json({ message: "Service data not found" });
         }
 
-        const formattedServiceData = {
-            ...serviceData,
-            image: `${req.baseFullUrl}${serviceData.image}`,
-        };
+        const formattedServiceData = serviceData.map(elem => ({
+            ...elem,
+            image: `${req.baseFullUrl}${elem.image}`,
+        }));
 
         res.status(200).json(formattedServiceData);
     } catch (error) {
-        res.status(400).json({ message: "Failed to retrieve service data" });
+        res.status(500).json({ message: "Failed to retrieve service data" });
     }
 };
 
@@ -55,7 +57,7 @@ export const servicePage = async (req, res) => {
 
     try {
         const page = await prisma.service_page.findUnique({
-            where: { 
+            where: {
                 id,
             },
             include: {
@@ -121,7 +123,7 @@ export const edit = async (req, res) => {
 
     try {
         const page = await prisma.service_page.update({
-            where: { 
+            where: {
                 id,
             },
             data: {
@@ -130,7 +132,7 @@ export const edit = async (req, res) => {
                 social,
                 list,
                 servicesData: {
-                    deleteMany: {}, 
+                    deleteMany: {},
                     create: servicesData,
                 },
             },
@@ -154,7 +156,7 @@ export const remove = async (req, res) => {
 
     try {
         await prisma.service_page.delete({
-            where: { 
+            where: {
                 id,
             },
         });
