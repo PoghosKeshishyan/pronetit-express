@@ -1,6 +1,6 @@
 
 const getHomePage = async (req, res) => {
-    const projectVersion = 'v.2.3.'
+    const projectVersion = 'v.2.4.'
     const frontendURL = process.env.FRONTEND_URL;
 
     const routes = [
