@@ -1,6 +1,7 @@
 
 const getHomePage = async (req, res) => {
     const projectVersion = 'v.2.3.'
+    const frontendURL = process.env.FRONTEND_URL;
 
     const routes = [
         { id: 1, method: 'GET', access: 'public', url: `${req.baseFullUrl}/api/header-infos` },
@@ -27,7 +28,7 @@ const getHomePage = async (req, res) => {
         `${req.baseFullUrl}/api/footers`,
     ];
 
-    res.render('index', { projectVersion, routes, resources });
+    res.render('index', { projectVersion, frontendURL, routes, resources });
 };
 
 export default getHomePage;
